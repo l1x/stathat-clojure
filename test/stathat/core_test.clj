@@ -1,7 +1,11 @@
 (ns stathat.core-test
-  (:require [clojure.test :refer :all]
+  (:require [clj-http.client :as http]
+            [clojure.test :refer :all]
             [stathat.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest returns-200-on-post
+  (testing "Testing is 200 is returned"
+    (is (= 200 (:status (http/post (str "http://api.stathat.com/" "ez") {:ezkey "leccine@gmail.com", 
+                                                                         :stat  "Conus geographus", 
+                                                                         :count 13}))))))
+
