@@ -1,35 +1,6 @@
 # stathat
 
-FIXME: description
+Based on: 
 
-## Installation
+[https://github.com/stathat/shlibs/blob/master/lisp/stathat.lisp](Stathat Lisp lib)
 
-Download from http://example.com/FIXME.
-
-## Usage
-
-FIXME: explanation
-
-    $ java -jar stathat-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2013 FIXME
-
-Distributed under the Eclipse Public License, the same as Clojure.

@@ -1,40 +1,38 @@
 (ns stathat.core
+  (:require [clj-http.client :as http])
   (:gen-class))
 
 
-(defun stathat-post [path parameters]
+(defn- stathat-post [path parameters]
   "HTTP post request helper"
-  (http-request (format "http://api.stathat.com/~A" path)
-                :method :post
-                :parameters parameters))
+  (http/post (str "http://api.stathat.com/" path) {:form-params parameters}))
 
-(defun stathat-ez-value (ezkey stat value)
+(defn- stathat-ez-value [ezkey stat value]
   "Sends a value to stathat via the EZ API"
-  (stathat-post "ez" '(("ezkey" . ezkey)
-                       ("stat" . stat)
-                       ("value" . value))))
+  (stathat-post "ez" {:ezkey  ezkey
+                      :stat   stat
+                      :value  value}))
 
-(defun stathat-ez-count (ezkey stat ncount)
+(defn- stathat-ez-count [ezkey stat ncount]
   "Sends a count to stathat via the EZ API"
-  (stathat-post "ez" '(("ezkey" . ezkey)
-                       ("stat" . stat)
-                       ("count" . ncount))))
+  (stathat-post "ez" {:ezkey  ezkey
+                      :stat   stat
+                      :count  ncount}))
 
-(defun stathat-value (userkey statkey value)
+(defn- stathat-value [userkey statkey value]
   "Sends a value to stathat via the classic API"
-  (stathat-post "v" '(("ukey" . userkey)
-                       ("key" . statkey)
-                       ("value" . value))))
+  (stathat-post "v" {:ukey  userkey
+                     :key   statkey
+                     :value value}))
 
-(defun stathat-count (userkey statkey ncount)
+(defn- stathat-count [userkey statkey ncount]
   "Sends a count to stathat via the classic API"
-  (stathat-post "c" '(("ukey" . userkey)
-                       ("key" . statkey)
-                       ("count" . ncount))))
+  (stathat-post "c" {:ukey   userkey
+                     :key    statkey
+                     :count  ncount}))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Testing stathat.core"
   [& args]
-  ;; work around dangerous default behaviour in Clojure
   (alter-var-root #'*read-eval* (constantly false))
-  (println "Hello, World!"))
+  (stathat-ez-count "leccine@gmail.com" "Conus geographus" 13))
