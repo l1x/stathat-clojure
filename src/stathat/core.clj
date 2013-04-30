@@ -2,7 +2,6 @@
   (:require [clj-http.client :as http])
   (:gen-class))
 
-
 (defn- stathat-post [path parameters]
   "HTTP post request helper"
   (http/post (str "http://api.stathat.com/" path) {:form-params parameters}))
@@ -34,5 +33,6 @@
 (defn -main
   "Testing stathat.core"
   [& args]
-  (alter-var-root #'*read-eval* (constantly false))
-  (stathat-ez-count "leccine@gmail.com" "Conus geographus" 13))
+  (alter-var-root #'*read-eval* (constantly false)))
+  ;(stathat-ez-count "your@mail.com" "my lucky number" 13)
+  
