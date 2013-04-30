@@ -1,4 +1,4 @@
-# Clojre port of the Lisp lib for Stathat
+# Clojure port of the Lisp lib for Stathat
 
 Based on: 
 
