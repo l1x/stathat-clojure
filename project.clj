@@ -1,4 +1,4 @@
-(defproject stathat "0.0.1"
+(defproject stathat "0.0.2"
   :description "StatHat library for Clojure"
   :url "https://github.com/yurrriq/stathat-clojure"
   :license {:name "MIT License"
