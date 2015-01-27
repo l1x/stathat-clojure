@@ -5,5 +5,5 @@
             :url "http://yurrriq.mit-license.org"}
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/tools.trace "0.7.8"]
-                 [clj-http "1.0.1"]]
+                 [http-kit "2.1.19"]]
   :main stathat.core)
