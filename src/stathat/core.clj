@@ -1,5 +1,5 @@
 (ns stathat.core
-  (:require [clj-http.client :as http])
+  (:require [org.httpkit.client :as http])
   (:gen-class))
 
 (defn- stathat-post [path parameters]
@@ -18,6 +18,8 @@
                       :stat   stat
                       :count  ncount}))
 
+#_(stathat-ez-count "your@mail.com" "my lucky number" 13)
+
 (defn- stathat-value [userkey statkey value]
   "Sends a value to stathat via the classic API"
   (stathat-post "v" {:ukey  userkey
@@ -34,5 +36,3 @@
   "Testing stathat.core"
   [& args]
   (alter-var-root #'*read-eval* (constantly false)))
-  ;(stathat-ez-count "your@mail.com" "my lucky number" 13)
-  
